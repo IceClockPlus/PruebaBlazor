@@ -7,7 +7,7 @@ namespace BlazorWAApp.Client.Components {
         [Parameter]
         public string Message { get; set; }
 
-        private string Texto = "Qeuen es ?";
+        private string Texto = "Quien es ?";
 
         private void OnClick() {
             Texto = Message;
