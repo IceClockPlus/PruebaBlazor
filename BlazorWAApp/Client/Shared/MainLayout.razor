@@ -11,7 +11,14 @@
         </div>
 
         <div class="content px-4">
-            @Body
+            <CascadingValue Value="@context" Name="context">
+                @Body
+            </CascadingValue>
         </div>
     </div>
 </div>
+
+@code{
+
+    private (string name, string issuer) context = ("Juan", "MyV");
+}
