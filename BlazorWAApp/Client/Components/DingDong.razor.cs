@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorWAApp.Client.Components {
@@ -11,7 +7,7 @@ namespace BlazorWAApp.Client.Components {
         [Parameter]
         public string Message { get; set; }
 
-        private string Texto;
+        private string Texto = "Qeuen es ?";
 
         private void OnClick() {
             Texto = Message;
