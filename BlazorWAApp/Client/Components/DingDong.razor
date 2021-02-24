@@ -1,9 +1,19 @@
 ﻿@using Syncfusion.Blazor.Buttons
 @using Syncfusion.Blazor.Inputs
-<div class="row">
-    <SfButton CssClass="e-primary e-outline" @onclick="OnClick" IconCss="e-icons e-preview">
-        @Texto
-    </SfButton>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-4">
+            <SfButton CssClass="e-primary e-outline" @onclick="OnClick" IconCss="e-icons e-preview">
+                @Texto
+            </SfButton>
+        </div>
+        <div class="col-md-4">
+            <SfTextBox Readonly="true" Value="@Answer" Placeholder="Nombre">
+            </SfTextBox>
+        </div>
+
+    </div>
+
 </div>
 
 <style>

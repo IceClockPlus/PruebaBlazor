@@ -11,10 +11,11 @@ namespace BlazorWAApp.Client.Components
 
         private string Texto = "¿Quien es ?";
 
+        private string Answer = string.Empty;
 
         private void OnClick()
         {
-            Texto = Message;
+            Answer = Message;
         }
 
 
