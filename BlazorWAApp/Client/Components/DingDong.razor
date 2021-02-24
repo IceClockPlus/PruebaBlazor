@@ -1,5 +1,10 @@
 ﻿@using Syncfusion.Blazor.Buttons
-<SfButton CssClass="e-primary e-outline" @onclick="OnClick">
+<SfButton CssClass="e-primary e-outline" @onclick="OnClick" IconCss="e-icons e-preview">
     @Texto
 </SfButton>
 
+<style>
+    .e-preview:before {
+        content: '\e787'
+    }
+</style>
