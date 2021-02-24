@@ -7,4 +7,16 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<DingDong Message="@context.name"></DingDong>
+<SfTab>
+    <TabItems>
+        <TabItem>
+            <ChildContent>
+                <TabHeader Text="Ding Dong"></TabHeader>
+            </ChildContent>
+            <ContentTemplate>
+                <DingDong Message="@context.name"></DingDong>
+            </ContentTemplate>
+        </TabItem>
+    </TabItems>
+
+</SfTab>
