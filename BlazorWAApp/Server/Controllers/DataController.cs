@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
 using System;
@@ -14,6 +15,7 @@ namespace BlazorWAApp.Server.Controllers
         public PhysicalFileProvider operation;
         public string basePath;
 
+        [Route("FileOperations")]
         public object FileOperations([FromBody]FileManagerDirectoryContent args)
         {
             switch (args.Action)
