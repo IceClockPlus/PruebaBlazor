@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWAApp.Server", "BlazorWAApp\Server\BlazorWAApp.Server.csproj", "{6566146E-B36B-4E2E-9B8B-3F45CB35C30F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWAApp.Server", "BlazorWAApp\Server\BlazorWAApp.Server.csproj", "{6566146E-B36B-4E2E-9B8B-3F45CB35C30F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWAApp.Client", "BlazorWAApp\Client\BlazorWAApp.Client.csproj", "{24E1C39F-9468-4792-BBDE-4ED67237B65C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWAApp.Client", "BlazorWAApp\Client\BlazorWAApp.Client.csproj", "{24E1C39F-9468-4792-BBDE-4ED67237B65C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWAApp.Shared", "BlazorWAApp\Shared\BlazorWAApp.Shared.csproj", "{C6FCE9B5-4C7B-4D48-961D-9EE4641FCD36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWAApp.Shared", "BlazorWAApp\Shared\BlazorWAApp.Shared.csproj", "{C6FCE9B5-4C7B-4D48-961D-9EE4641FCD36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

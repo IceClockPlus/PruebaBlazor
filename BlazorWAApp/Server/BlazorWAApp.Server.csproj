@@ -13,5 +13,9 @@
     <ProjectReference Include="..\Shared\BlazorWAApp.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 
 </Project>
