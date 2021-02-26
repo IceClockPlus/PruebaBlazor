@@ -15,6 +15,13 @@ namespace BlazorWAApp.Server.Controllers
         public PhysicalFileProvider operation;
         public string basePath;
 
+        public DataController(IWebHostEnvironment hostingEnvironment)
+        {
+            this.basePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            this.operation = new PhysicalFileProvider();
+            this.operation.RootFolder(this.basePath);
+        }
+
         [Route("FileOperations")]
         public object FileOperations([FromBody]FileManagerDirectoryContent args)
         {
