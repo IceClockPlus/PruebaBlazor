@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
 using System;
@@ -45,6 +46,13 @@ namespace BlazorWAApp.Server.Controllers
                     return this.operation.ToCamelCase(this.operation.Rename(args.Path,args.Name,args.NewName));
             }
             return null;
+        }
+
+        [Route("Download")]
+        public IActionResult Download(string downloadInput)
+        {
+            FileManagerDirectoryContent args = JsonConvert.DeserializeObject<FileManagerDirectoryContent>(downloadInput);
+            return operation.Download(args.Path, args.Names);
         }
     }
 }
