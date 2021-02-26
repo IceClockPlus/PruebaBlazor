@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.EJ2.FileManager.Base;
@@ -53,6 +55,21 @@ namespace BlazorWAApp.Server.Controllers
         {
             FileManagerDirectoryContent args = JsonConvert.DeserializeObject<FileManagerDirectoryContent>(downloadInput);
             return operation.Download(args.Path, args.Names);
+        }
+
+        [Route("Upload")]
+        public IActionResult Upload(string path, IList<IFormFile> uploadFiles, string action)
+        {
+            FileManagerResponse uploadResponse;
+            uploadResponse = operation.Upload(path, uploadFiles, action, null);
+            if(uploadResponse.Error != null)
+            {
+                Response.Clear();
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
+                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+            }
+            return Content("");
         }
     }
 }
