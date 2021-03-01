@@ -42,7 +42,7 @@ namespace BlazorWAApp.Server {
 
             app.UseRouting();
 
-            //Required to connect to Azure Blob Containers
+            //Required to connect to Azure Blob Containers. This call must be between UseRouting and UseEndpoints
             app.UseCors();
 
             app.UseEndpoints(endpoints => {

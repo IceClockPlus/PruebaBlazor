@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -80,5 +82,25 @@ namespace BlazorWAApp.Server.Controllers
         }
 
 
+
+        [Route("AzureUpload")]
+        public IActionResult AzureUpload(FileManagerDirectoryContent args)
+        {
+            if (args.Path != "")
+            {
+                string startPath = "https://storageaccounttesta881c.blob.core.windows.net/azure-documents/";
+                string originalPath = ("https://storageaccounttesta881c.blob.core.windows.net/azure-documents/Docs/").Replace(startPath, "");
+                args.Path = (originalPath + args.Path).Replace("//", "/");
+            }
+            FileManagerResponse uploadResponse = operation.Upload(args.Path, args.UploadFiles, args.Action, args.Data);
+            if (uploadResponse.Error != null)
+            {
+                Response.Clear();
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
+                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+            }
+            return Json("");
+        }
     }
 }
