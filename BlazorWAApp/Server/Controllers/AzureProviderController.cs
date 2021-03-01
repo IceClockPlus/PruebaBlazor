@@ -102,5 +102,12 @@ namespace BlazorWAApp.Server.Controllers
             }
             return Json("");
         }
+
+        [Route("AzureDownload")]
+        public object AzureDownload(string downloadInput)
+        {
+            FileManagerDirectoryContent args = JsonConvert.DeserializeObject<FileManagerDirectoryContent>(downloadInput);
+            return operation.Download(args.Path, args.Names, args.Data);
+        }
     }
 }
