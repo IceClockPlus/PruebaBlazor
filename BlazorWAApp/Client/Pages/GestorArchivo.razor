@@ -1,4 +1,6 @@
 ﻿@page "/gestorarchivo"
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Popups
 <h3>GestorArchivo</h3>
 
 <div class="container">
@@ -12,6 +14,17 @@
             </SfFileManager>
         </div>
     </div>
-
 </div>
+
+<SfDialog Width="80%" Height="80%" ShowCloseIcon="true">
+    <DialogPositionData X="center" Y="top"></DialogPositionData>
+    <DialogTemplates>
+        <Header>
+            Visor PDF
+        </Header>
+        <Content>
+
+        </Content>
+    </DialogTemplates>
+</SfDialog> 
 
