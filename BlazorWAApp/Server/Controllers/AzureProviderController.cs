@@ -22,6 +22,7 @@ namespace BlazorWAApp.Server.Controllers
         {
             this.operation = new AzureFileProvider();
             this.operation.RegisterAzure("storageaccounttesta881c", "lsnKCNWHZ2lMBJggRnRoUona5U3Hn4CqlCnKe9YSdu4zZ2fWRBdr3HOZybhqcrihvRFht9KKmIRhBRySzywZ6A==", "azure-documents");
+            this.operation.setBlobContainer("https://storageaccounttesta881c.blob.core.windows.net/azure-documents", "https://storageaccounttesta881c.blob.core.windows.net/azure-documents/Docs");
         }
 
         [Route("AzureFileOperations")]

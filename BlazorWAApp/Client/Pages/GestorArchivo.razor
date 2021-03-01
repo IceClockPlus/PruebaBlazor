@@ -7,16 +7,14 @@
     <div class="row">
         <div class="col-md-12">
             <SfFileManager TValue="FileManagerDirectoryContent">
-                <FileManagerAjaxSettings Url="/api/Data/FileOperations"
-                                         DownloadUrl="/api/Data/Download"
-                                         UploadUrl="/api/Data/Upload">
+                <FileManagerAjaxSettings Url="/api/AzureProvider/AzureFileOperations">
                 </FileManagerAjaxSettings>
             </SfFileManager>
         </div>
     </div>
 </div>
 
-<SfDialog Width="80%" Height="80%" ShowCloseIcon="true">
+<SfDialog Visible="false" Width="80%" Height="80%" ShowCloseIcon="true">
     <DialogPositionData X="center" Y="top"></DialogPositionData>
     <DialogTemplates>
         <Header>
