@@ -1,6 +1,9 @@
 ﻿@page "/gestorarchivo"
 @using Syncfusion.Blazor.PdfViewer
 @using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Spinner
+@inject HttpClient Http
+
 <h3>GestorArchivo</h3>
 
 <div class="container">
@@ -16,15 +19,16 @@
     </div>
 </div>
 
-<SfDialog Visible="false" Width="80%" Height="80%" ShowCloseIcon="true">
+<SfDialog Visible="@IsVisible" Width="80%" Height="80%" ShowCloseIcon="true">
     <DialogPositionData X="center" Y="top"></DialogPositionData>
     <DialogTemplates>
         <Header>
             Visor PDF
         </Header>
         <Content>
-
+            <SfPdfViewer @ref="pdfViewer" Height="100%"></SfPdfViewer>
         </Content>
     </DialogTemplates>
 </SfDialog> 
 
+<SfSpinner @ref="spinner" Target="#loading"></SfSpinner>
