@@ -53,7 +53,7 @@ namespace BlazorWAApp.Server.Controllers
                     return this.ToCamelCase(this.operation.Details(args.Path, args.Names, args.Data));
                 case "create":
                     // Creates a new folder in a given path.
-                    return this.ToCamelCase(this.operation.Create(args.Path, args.Name, args.Data));
+                    return this.ToCamelCase(this.operation.CreateTree(args.Path, args.Name, args.Data));
                 case "search":
                     // Gets the list of file(s) or folder(s) from a given path based on the searched key string.
                     return this.ToCamelCase(this.operation.Search(args.Path, args.SearchString, args.ShowHiddenItems, args.CaseSensitive, args.Data));

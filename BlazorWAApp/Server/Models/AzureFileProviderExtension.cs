@@ -10,8 +10,14 @@ namespace BlazorWAApp.Server.Models
     {
         public static FileManagerResponse CreateTree(this AzureFileProvider az,string path, string name, params FileManagerDirectoryContent[] selectedItems)
         {
-            var fullPath = name + "/" + "Deudor";
-            return az.Create(path, fullPath, selectedItems);
+            var files = new List<string> { "/Deudor","/Codeudor", "/Garantia/Escritura", "/Garantia/Tasacion" };
+            foreach(var newFile in files)
+            {
+                var fullPath = (name + newFile).Replace("//", "/");
+                az.Create(path, fullPath, selectedItems);
+            }
+
+            return az.GetFiles(path,false,selectedItems);
         }
     }
 }
