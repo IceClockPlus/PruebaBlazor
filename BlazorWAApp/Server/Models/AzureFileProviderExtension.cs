@@ -10,7 +10,8 @@ namespace BlazorWAApp.Server.Models
     {
         public static FileManagerResponse CreateTree(this AzureFileProvider az,string path, string name, params FileManagerDirectoryContent[] selectedItems)
         {
-            throw new NotImplementedException();
+            var fullPath = name + "/" + "Deudor";
+            return az.Create(path, fullPath, selectedItems);
         }
     }
 }

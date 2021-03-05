@@ -14,6 +14,8 @@
                                          UploadUrl="/api/AzureProvider/AzureUpload"
                                          DownloadUrl="/api/AzureProvider/AzureDownload">
                 </FileManagerAjaxSettings>
+                <FileManagerToolbarSettings Items="@Items"></FileManagerToolbarSettings>
+                <FileManagerEvents ToolbarItemClicked="OnToolbarItemClick" TValue="FileManagerDirectoryContent"></FileManagerEvents>
             </SfFileManager>
         </div>
     </div>

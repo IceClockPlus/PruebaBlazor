@@ -30,6 +30,7 @@ namespace BlazorWAApp.Server.Controllers
         [Route("AzureFileOperations")]
         public object AzureFileOperations([FromBody] FileManagerDirectoryContent args)
         {
+            //DRY
             if(args.Path != "")
             {
                 string startPath = "https://storageaccounttesta881c.blob.core.windows.net/azure-documents/";
@@ -65,6 +66,7 @@ namespace BlazorWAApp.Server.Controllers
                 case "move":
                     // Cuts the selected file(s) or folder(s) from a path and then pastes them into a given target path.
                     return this.ToCamelCase(this.operation.Move(args.Path, args.TargetPath, args.Names, args.RenameFiles, args.TargetData, args.Data));
+
             }
             return null;
         
@@ -86,6 +88,7 @@ namespace BlazorWAApp.Server.Controllers
         [Route("AzureUpload")]
         public IActionResult AzureUpload(FileManagerDirectoryContent args)
         {
+            //DRY
             if (args.Path != "")
             {
                 string startPath = "https://storageaccounttesta881c.blob.core.windows.net/azure-documents/";
@@ -109,5 +112,23 @@ namespace BlazorWAApp.Server.Controllers
             FileManagerDirectoryContent args = JsonConvert.DeserializeObject<FileManagerDirectoryContent>(downloadInput);
             return operation.Download(args.Path, args.Names, args.Data);
         }
+
+        [Route("CreateTree")]
+        public object CreateTree(FileManagerDirectoryContent args)
+        {
+            //DRY 
+            if (args.Path != "")
+            {
+                string startPath = "https://storageaccounttesta881c.blob.core.windows.net/azure-documents/";
+                string originPath = ("https://storageaccounttesta881c.blob.core.windows.net/azure-documents/Docs/").Replace(startPath, "");
+
+                args.Path = (originPath + args.Path).Replace("//", "/");
+                args.TargetPath = (originPath + args.TargetPath).Replace("//", "/");
+            }
+
+            return ToCamelCase(operation.CreateTree(args.Path, args.Name, args.Data));
+
+        }
+
     }
 }
