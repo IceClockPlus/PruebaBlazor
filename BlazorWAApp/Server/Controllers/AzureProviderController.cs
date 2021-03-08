@@ -114,7 +114,7 @@ namespace BlazorWAApp.Server.Controllers
         }
 
         [Route("CreateTree")]
-        public object CreateTree(FileManagerDirectoryContent args)
+        public object CreateTree([FromBody]FileManagerDirectoryContent args)
         {
             //DRY 
             if (args.Path != "")
