@@ -16,7 +16,7 @@ namespace BlazorWAApp.Server.Models
                 var fullPath = (name + newFile).Replace("//", "/");
                 az.Create(path, fullPath, selectedItems);
             }
-
+            FileManagerResponse response = new FileManagerResponse();
             return az.GetFiles(path,false,selectedItems);
         }
     }

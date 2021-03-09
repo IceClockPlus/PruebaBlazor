@@ -20,7 +20,7 @@ namespace BlazorWAApp.Client.Pages
         static HttpClient client = new HttpClient();
         public async void OnToolbarItemClick(ToolbarClickEventArgs<FileManagerDirectoryContent> args)
         {
-            var rootFile = DateTime.Now.ToString("DDMMYYYY");
+            var rootFile = DateTime.Now.ToString("dd-MM-yyyy H:m:ss");
             FileManagerDirectoryContent file = new FileManagerDirectoryContent();
            
             if (args.Item.Text.Equals("Custom"))
