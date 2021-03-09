@@ -37,6 +37,7 @@ namespace BlazorWAApp.Server.Controllers
                 string originPath = ("https://storageaccounttesta881c.blob.core.windows.net/azure-documents/Docs/").Replace(startPath, "");
 
                 args.Path = (originPath + args.Path).Replace("//", "/");
+                //Remove duplicated in the path
                 args.Path = (args.Path).Replace("Docs/Docs/", "Docs/");
                 args.TargetPath = (originPath + args.TargetPath).Replace("//", "/");
             }
