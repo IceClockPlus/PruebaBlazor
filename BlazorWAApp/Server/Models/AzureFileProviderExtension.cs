@@ -17,7 +17,7 @@ namespace BlazorWAApp.Server.Models
                 az.Create(path, fullPath, selectedItems);
             }
             FileManagerResponse response = new FileManagerResponse();
-            return az.GetFiles(path,false,selectedItems);
+            return az.GetFiles(path+'/'+name,false,selectedItems);
         }
     }
 }

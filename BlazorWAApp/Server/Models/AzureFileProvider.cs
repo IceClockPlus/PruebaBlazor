@@ -81,11 +81,16 @@ namespace BlazorWAApp.Server.Models
             FileManagerDirectoryContent cwd = new FileManagerDirectoryContent();
             try
             {
+                //Si selected items se encuentra nulo, se inicializa
+                if(selectedItems == null)
+                {
+                    selectedItems = new FileManagerDirectoryContent[0];
+                }
                 string[] extensions = (filter.Replace(" ", "") ?? "*").Split(",|;".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 CloudBlobDirectory sampleDirectory = container.GetDirectoryReference(path);
                 cwd.Name = sampleDirectory.Prefix.Split(sampleDirectory.Parent.Prefix)[sampleDirectory.Prefix.Split(sampleDirectory.Parent.Prefix).Length - 1].Replace("/", "");
                 cwd.Type = "File Folder";
-                cwd.FilterPath = selectedItems.Length > 0 ? selectedItems[0].FilterPath : "";
+                cwd.FilterPath = (selectedItems.Length > 0) ? selectedItems[0].FilterPath : "";
                 cwd.Size = 0;
                 cwd.HasChild = await HasChildDirectory(path);
                 readResponse.CWD = cwd;
