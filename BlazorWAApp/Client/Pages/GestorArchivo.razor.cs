@@ -16,9 +16,11 @@ namespace BlazorWAApp.Client.Pages
         SfSpinner spinner;
         private SfPdfViewer pdfViewer;
 
+        private SfFileManager<FileManagerDirectoryContent> FileManager { get; set; }
+
         public string[] Items = new string[] { "NewFolder", "Upload", "Delete", "Download", "Rename", "SortBy", "Refresh", "Selection", "View", "Details", "Custom" };
         static HttpClient client = new HttpClient();
-        public async void OnToolbarItemClick(ToolbarClickEventArgs<FileManagerDirectoryContent> args)
+        public async Task OnToolbarItemClick(ToolbarClickEventArgs<FileManagerDirectoryContent> args)
         {
             var rootFile = DateTime.Now.ToString("dd-MM-yyyy H:m:ss");
             FileManagerDirectoryContent file = new FileManagerDirectoryContent();
@@ -28,9 +30,15 @@ namespace BlazorWAApp.Client.Pages
                 file.Name = rootFile;
                 HttpResponseMessage response = await client.PostAsJsonAsync("https://localhost:5001/api/AzureProvider/CreateTree", file);
                 response.EnsureSuccessStatusCode();
+
+                await FileManager.RefreshFilesAsync();
             }
         }
 
+        public void OnFileOpenHandler(FileOpenEventArgs<FileManagerDirectoryContent> args)
+        {
+
+        }
 
     }
 }
