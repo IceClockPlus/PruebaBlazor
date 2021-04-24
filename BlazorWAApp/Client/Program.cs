@@ -17,7 +17,7 @@ namespace BlazorWAApp.Client
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            SyncfusionLicenseProvider.RegisterLicense("NDA0MzY5QDMxMzgyZTM0MmUzMEQzOHhNNUh4UGxBWHRreTVIbmVybGZ2cmlXQmQ5RDF3eUYyS25DMWhXMXM9");
+            SyncfusionLicenseProvider.RegisterLicense("Syncfusion-Key");
             builder.Services.AddSyncfusionBlazor();
             await builder.Build().RunAsync();
         }
